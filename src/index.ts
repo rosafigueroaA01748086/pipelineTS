@@ -12,7 +12,7 @@ const server = new Server({
         express.urlencoded({extended:true})
     ],
     controllers:[
-        // MascotaController.instance,
+        MascotaController.instance,
         ProductoController.instance
     
     ]
