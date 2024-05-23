@@ -1,7 +1,8 @@
 import Server from "./providers/Server";
 import {PORT,NODE_ENV} from './config';
 import express from 'express';
-import AgenteController from "./controllers/AgenteController";
+import MascotaController from "./controllers/MascotaController";
+import ProductoController from "./controllers/ProductoController";
 
 const server = new Server({
     port:PORT,
@@ -11,7 +12,9 @@ const server = new Server({
         express.urlencoded({extended:true})
     ],
     controllers:[
-        AgenteController.instance
+        // MascotaController.instance,
+        ProductoController.instance
+    
     ]
     
 });

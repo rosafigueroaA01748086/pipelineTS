@@ -1,22 +1,24 @@
 import { Model, Sequelize } from "sequelize";
 
-interface AgenteAttributes {
+interface MascotaAttributes {
     id: number;
     nombre: string;
-    email: string;
+    especie: string;
+    edad: number;
 }
 
 module.exports = (sequelize:any,DataTypes:any) => {
-    class Agente extends Model<AgenteAttributes> implements AgenteAttributes {
+    class Mascota extends Model<MascotaAttributes> implements MascotaAttributes {
         public id!: number;
         public nombre!: string;
-        public email!: string;
+        public especie!: string;
+        public edad!: number;
 
         static associate(models:any) {
             // define association here
         }
     }
-    Agente.init({
+    Mascota.init({
         id:{
             type:DataTypes.INTEGER,
             allowNull:false,
@@ -27,14 +29,18 @@ module.exports = (sequelize:any,DataTypes:any) => {
             type:DataTypes.STRING,
             allowNull:false
         },
-        email:{
+        especie:{
             type:DataTypes.STRING(50),
             allowNull:false        
-        }
+        },
+        edad:{
+            type:DataTypes.INTEGER,
+            allowNull:false,
+        },
     },{
         sequelize,
-        modelName:'Agente'
+        modelName:'Mascota'
     });
-    return Agente;
+    return Mascota;
 };
         

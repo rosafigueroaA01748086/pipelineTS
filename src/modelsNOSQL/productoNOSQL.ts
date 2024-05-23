@@ -2,15 +2,16 @@ import dynamodb from "../services/dynamodbService";
 import joi from "joi";
 import {PREFIX_NAME} from "../config";
 
-const DepartamentModel = dynamodb.define('departamento',{
-    hashKey:'DeptoId',
+const ProductoModel = dynamodb.define('producto',{
+    hashKey:'ProductoID',
     timestamps:false,
     schema:{
-        DeptoId:dynamodb.types.uuid(),
+        ProductoID:dynamodb.types.uuid(),
         Nombre:joi.string(),
-        numAgen:joi.number()
+        Precio:joi.number(),
+        Marca:joi.string()
     },
-    tableName:`Departamento${PREFIX_NAME}`
+    tableName:`producto${PREFIX_NAME}`
 })
 
 dynamodb.createTables((err)=>{
@@ -19,4 +20,4 @@ dynamodb.createTables((err)=>{
     console.log("Tabla creadas");
 })
 
-export default DepartamentModel;
+export default ProductoModel;
